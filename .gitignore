@@ -1,4 +1,4 @@
-# Prerequisites
+
 *.d
 
 # Compiled Object files
@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+.DS_STORE
+node_modules
+build
+
+*.log
