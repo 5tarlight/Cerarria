@@ -35,8 +35,4 @@
 node_modules
 build
 
-.DS_STORE
-node_modules
-build
-
 *.log
