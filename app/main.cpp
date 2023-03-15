@@ -1,3 +1,8 @@
+#include <ColorString.h>
+#include <color.h>
 #include <iostream>
 
-int main() { std::cout << "Hello World" << std::endl; }
+int main() {
+  ColorString title("Welcome to Cerarria", PURPLE, BOLD);
+  std::cout << title() << std::endl;
+}
