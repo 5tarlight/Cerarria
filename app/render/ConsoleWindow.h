@@ -10,8 +10,9 @@ class Window {
   std::vector<std::vector<std::string>> content;
 
 public:
+  Window(int w, int h, int id);
+
   static int focusId;
   static std::vector<Window> windows;
-  static void initWindow();
   static void updateWindow();
 };
