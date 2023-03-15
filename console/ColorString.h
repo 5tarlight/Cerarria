@@ -14,4 +14,6 @@ public:
   ColorString(std::string str, const char *color, const char *decoration);
 
   std::string operator()();
+  void print();
+  void println();
 };

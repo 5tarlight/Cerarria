@@ -4,5 +4,5 @@
 
 int main() {
   ColorString title("Welcome to Cerarria", PURPLE, BOLD);
-  std::cout << title() << std::endl;
+  title.println();
 }
