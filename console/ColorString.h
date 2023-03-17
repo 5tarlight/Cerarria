@@ -8,6 +8,7 @@ class ColorString {
   std::string decoration;
 
 public:
+  ColorString();
   ColorString(const char *str);
   ColorString(std::string str);
   ColorString(std::string str, const char *color);
