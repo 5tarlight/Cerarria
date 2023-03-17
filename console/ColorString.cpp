@@ -2,6 +2,8 @@
 #include "color.h"
 #include <cstdio>
 
+ColorString::ColorString() : ColorString("") {}
+
 ColorString::ColorString(const char *str)
     : ColorString(std::string(str), NONE, NONE) {}
 
