@@ -17,4 +17,8 @@ public:
   static int focusId;
   static std::vector<Window> windows;
   static void updateWindow();
+
+private:
+  static void fetchGame();
+  static void fetchChat();
 };
