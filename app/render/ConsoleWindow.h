@@ -9,9 +9,10 @@ class Window {
   int height;
   bool focus;
   cfg::win_id id;
-  std::vector<std::vector<ColorString>> content;
 
 public:
+  std::vector<std::vector<ColorString>> content;
+
   Window(int w, int h, cfg::win_id id);
 
   static int focusId;

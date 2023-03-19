@@ -106,5 +106,9 @@ void Window::fetchGame() {
 void Window::fetchChat() {
   User system = User("test-uuid", "SYSTEM");
   Chat::addChat(Chat(system, "Hello World!"));
-  // ColorString(std::to_string(Chat::chats.size())).println();
+  Chat::addChat(Chat(system, "Welcome to Cararria."));
+  Chat::addChat(Chat(
+      system, "This is very looooooooooooooooooooooooooooooooong message."));
+
+  Chat::render();
 }
