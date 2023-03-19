@@ -15,9 +15,12 @@ class Chat {
   std::string content;
 
 public:
+  Chat() : author("-1", "unknown"), content("unknown") {}
+  Chat(User author, std::string content) : author(author), content(content) {}
+
   chat::message make() const;
 
   static std::vector<chat::message> chats;
-  static void addChat(User author, std::string content);
+  static void addChat(Chat ch);
   static void render();
 };

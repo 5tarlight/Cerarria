@@ -1,5 +1,6 @@
 #include "ConsoleWindow.h"
 #include "../constants.h"
+#include "./chat.h"
 #include <ColorString.h>
 #include <color.h>
 #include <input.h>
@@ -102,4 +103,8 @@ void Window::fetchGame() {
   }
 }
 
-void Window::fetchChat() {}
+void Window::fetchChat() {
+  User system = User("test-uuid", "SYSTEM");
+  Chat::addChat(Chat(system, "Hello World!"));
+  // ColorString(std::to_string(Chat::chats.size())).println();
+}
