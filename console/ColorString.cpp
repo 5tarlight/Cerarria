@@ -29,6 +29,10 @@ void ColorString::println() const {
   printf("%s\n", this->operator()().c_str());
 }
 
+std::string ColorString::operator[](const int &i) const {
+  return this->str.substr(i, 1);
+}
+
 ColorString operator+(const ColorString &str1, const ColorString &str2) {
   return ColorString(str1() + str2());
 }
