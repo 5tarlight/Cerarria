@@ -1,5 +1,6 @@
 #include "ConsoleWindow.h"
 #include "../constants.h"
+#include "./chat.h"
 #include <ColorString.h>
 #include <color.h>
 #include <input.h>
@@ -41,13 +42,16 @@ void Window::updateWindow() {
 
     // TODO : Load map and chat
     for (int j = 0; j < cfg::gameWidth; j++) {
-      game[i][j] = ColorString("1");
+      game[i][j] = ColorString(" ");
     }
 
     for (int j = 0; j < cfg::chatWidth; j++) {
-      chat[i][j] = ColorString("2");
+      chat[i][j] = ColorString(" ");
     }
   }
+
+  fetchChat();
+  fetchGame();
 
   int w = cfg::gameWidth + cfg::chatWidth + 3;
   // Print it
@@ -84,4 +88,29 @@ void Window::updateWindow() {
 
     ColorString("").println();
   }
+}
+
+void Window::fetchGame() {
+  auto &game = Window::windows[0].content;
+
+  for (int i = 0; i < cfg::gameHeight; i++) {
+    for (int j = 0; j < cfg::gameWidth; j++) {
+      if (i == 40)
+        game[i][j] = ColorString("#", GREEN);
+      else if (i > 40)
+        game[i][j] = ColorString("#");
+    }
+  }
+}
+
+void Window::fetchChat() {
+  User system = User("test-uuid", "SYSTEM");
+  Chat::addChat(Chat(system, "Hello World!"));
+  Chat::addChat(Chat(system, "Welcome to Cararria."));
+  Chat::addChat(
+      Chat(system, "You can change focus between windows. Press Enter or / to "
+                   "focus on chat window and press ESC to focus on "
+                   "game window. Using non-alphabetic character may "
+                   "cause unexpected behaviour."));
+  Chat::render();
 }

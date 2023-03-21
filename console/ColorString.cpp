@@ -19,10 +19,16 @@ ColorString::ColorString(std::string str, const char *color,
   this->decoration = std::string(decoration);
 }
 
-std::string ColorString::operator()() {
+std::string ColorString::operator()() const {
   return this->color + this->decoration + this->str + RESET;
 }
 
-void ColorString::print() { printf("%s", this->operator()().c_str()); }
+void ColorString::print() const { printf("%s", this->operator()().c_str()); }
 
-void ColorString::println() { printf("%s\n", this->operator()().c_str()); }
+void ColorString::println() const {
+  printf("%s\n", this->operator()().c_str());
+}
+
+ColorString operator+(const ColorString &str1, const ColorString &str2) {
+  return ColorString(str1() + str2());
+}

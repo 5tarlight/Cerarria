@@ -7,7 +7,7 @@
 int main() {
   ColorString title("Welcome to Cerarria", PURPLE, BOLD);
   title.println();
-  // clear(true);
+  clear(true);
 
   Window::updateWindow();
 }
