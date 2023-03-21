@@ -107,9 +107,10 @@ void Window::fetchChat() {
   User system = User("test-uuid", "SYSTEM");
   Chat::addChat(Chat(system, "Hello World!"));
   Chat::addChat(Chat(system, "Welcome to Cararria."));
-  Chat::addChat(Chat(system, "You can change focus between windows. Press / to "
-                             "focus on chat window and press ESC to focus on "
-                             "game window. Using non-alphabetic character may "
-                             "cause unexpected behaviour."));
+  Chat::addChat(
+      Chat(system, "You can change focus between windows. Press Enter or / to "
+                   "focus on chat window and press ESC to focus on "
+                   "game window. Using non-alphabetic character may "
+                   "cause unexpected behaviour."));
   Chat::render();
 }

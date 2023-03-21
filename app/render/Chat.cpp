@@ -74,10 +74,20 @@ void Chat::render() {
     } while (size > 0);
   }
 
-  for (auto &str : lines) {
-    for (auto &c : str) {
-      c.print();
+  int start;
+  if (lines.size() > height) {
+    start = lines.size() - height - 1;
+  } else {
+    start = 0;
+  }
+
+  for (int i = 0; i < height; i++) {
+    for (int j = 0; j < width; j++) {
+      if (i + start >= lines.size()) {
+        chat[i][j] = ColorString(" ");
+      } else {
+        chat[i][j] = std::move(lines[i + start][j]);
+      }
     }
-    ColorString().println();
   }
 }
