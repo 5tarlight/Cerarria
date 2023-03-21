@@ -1,5 +1,6 @@
 #include "ConsoleWindow.h"
 #include "../constants.h"
+#include "./chat.h"
 #include <ColorString.h>
 #include <color.h>
 #include <input.h>
@@ -102,4 +103,14 @@ void Window::fetchGame() {
   }
 }
 
-void Window::fetchChat() {}
+void Window::fetchChat() {
+  User system = User("test-uuid", "SYSTEM");
+  Chat::addChat(Chat(system, "Hello World!"));
+  Chat::addChat(Chat(system, "Welcome to Cararria."));
+  Chat::addChat(
+      Chat(system, "You can change focus between windows. Press Enter or / to "
+                   "focus on chat window and press ESC to focus on "
+                   "game window. Using non-alphabetic character may "
+                   "cause unexpected behaviour."));
+  Chat::render();
+}
