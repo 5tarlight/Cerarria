@@ -14,7 +14,7 @@ using std::string;
 using std::vector;
 
 message Chat::make() const {
-  ColorString author("<" + this->author.name + ">", YELLOW);
+  ColorString author("<" + this->author.name + ">", color::YELLOW);
   ColorString content(string(this->content));
   message ch = make_pair(author, content);
 
@@ -48,7 +48,8 @@ void Chat::render() {
 
       for (int i = 0; i < width; i++) {
         if (authorLength > 0) {
-          lines[lines.size() - 1].push_back(ColorString(ch.first[i], YELLOW));
+          lines[lines.size() - 1].push_back(
+              ColorString(ch.first[i], color::YELLOW));
           authorLength--;
         } else if (authorLength == 0) {
           lines[lines.size() - 1].push_back(ColorString(" "));

@@ -6,9 +6,9 @@
 
 void clear(bool pause) {
   if (pause) {
-    ColorString("Press ", ITALIC).print();
-    ColorString("enter", SBLUE, ITALIC).print();
-    ColorString(" to continue.", ITALIC).println();
+    ColorString("Press ", color::ITALIC).print();
+    ColorString("enter", color::SBLUE, color::ITALIC).print();
+    ColorString(" to continue.", color::ITALIC).println();
     getchar();
   }
 
