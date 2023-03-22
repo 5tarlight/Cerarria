@@ -86,7 +86,7 @@ void Chat::render() {
       if (i + start >= lines.size()) {
         chat[i][j] = ColorString(" ");
       } else {
-        chat[i][j] = std::move(lines[i + start][j]);
+        chat[i][j] = move(lines[i + start][j]);
       }
     }
   }
