@@ -4,7 +4,8 @@ time {
   mkdir build
   cd build
   cmake ..
-  make VERBOSE=TRUE
+  # make VERBOSE=TRUE
+  make
 }
 
 cd ..

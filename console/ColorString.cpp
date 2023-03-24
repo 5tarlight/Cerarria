@@ -5,12 +5,13 @@
 ColorString::ColorString() : ColorString("") {}
 
 ColorString::ColorString(const char *str)
-    : ColorString(std::string(str), NONE, NONE) {}
+    : ColorString(std::string(str), color::NONE, color::NONE) {}
 
-ColorString::ColorString(std::string str) : ColorString(str, NONE, NONE) {}
+ColorString::ColorString(std::string str)
+    : ColorString(str, color::NONE, color::NONE) {}
 
 ColorString::ColorString(std::string str, const char *color)
-    : ColorString(str, color, NONE) {}
+    : ColorString(str, color, color::NONE) {}
 
 ColorString::ColorString(std::string str, const char *color,
                          const char *decoration) {
@@ -20,7 +21,7 @@ ColorString::ColorString(std::string str, const char *color,
 }
 
 std::string ColorString::operator()() const {
-  return this->color + this->decoration + this->str + RESET;
+  return this->color + this->decoration + this->str + color::RESET;
 }
 
 void ColorString::print() const { printf("%s", this->operator()().c_str()); }

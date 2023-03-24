@@ -59,25 +59,25 @@ void Window::updateWindow() {
     for (int j = 0; j < w; j++) {
       if (i == -1) {
         if (j == 0)
-          ColorString("┌", NONE).print();
+          ColorString("┌", color::NONE).print();
         else if (j == w - 1)
-          ColorString("┐", NONE).print();
+          ColorString("┐", color::NONE).print();
         else if (j == cfg::gameWidth + 1)
-          ColorString("┬", NONE).print();
+          ColorString("┬", color::NONE).print();
         else
-          ColorString("─", NONE).print();
+          ColorString("─", color::NONE).print();
       } else if (i == cfg::gameHeight - 1) {
         if (j == 0)
-          ColorString("└", NONE).print();
+          ColorString("└", color::NONE).print();
         else if (j == w - 1)
-          ColorString("┘", NONE).print();
+          ColorString("┘", color::NONE).print();
         else if (j == cfg::gameWidth + 1)
-          ColorString("┴", NONE).print();
+          ColorString("┴", color::NONE).print();
         else
-          ColorString("─", NONE).print();
+          ColorString("─", color::NONE).print();
       } else {
         if (j == 0 || j == w - 1 || j == cfg::gameWidth + 1) {
-          ColorString("│", NONE).print();
+          ColorString("│", color::NONE).print();
         } else if (j <= cfg::gameWidth + 1) {
           game[i][j - 1].print();
         } else {
@@ -96,7 +96,7 @@ void Window::fetchGame() {
   for (int i = 0; i < cfg::gameHeight; i++) {
     for (int j = 0; j < cfg::gameWidth; j++) {
       if (i == 40)
-        game[i][j] = ColorString("#", GREEN);
+        game[i][j] = ColorString("#", color::GREEN);
       else if (i > 40)
         game[i][j] = ColorString("#");
     }
