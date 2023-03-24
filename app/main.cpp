@@ -4,16 +4,17 @@
 #include <cpr/cpr.h>
 #include <input.h>
 #include <iostream>
+#include <nlohmann/json.hpp>
+
+using json = nlohmann::json;
 
 int main() {
   ColorString title("Welcome to Cerarria", color::PURPLE, color::BOLD);
   title.println();
 
-  cpr::Response r = cpr::Get(
-      cpr::Url{"https://api.github.com/repos/whoshuu/cpr/contributors"},
-      cpr::Authentication{"user", "pass", cpr::AuthMode::BASIC},
-      cpr::Parameters{{"anon", "true"}, {"key", "value"}});
-  ColorString(r.text).println();
+  cpr::Response r = cpr::Get(cpr::Url{"http://localhost:3000"});
+  json data = json::parse(r.text);
+  ColorString(data["text"]).println();
 
   clear(true);
 
