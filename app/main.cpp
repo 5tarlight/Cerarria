@@ -12,11 +12,12 @@ int main() {
   ColorString title("Welcome to Cerarria", color::PURPLE, color::BOLD);
   title.println();
 
-  cpr::Response r = cpr::Get(cpr::Url{"http://localhost:3000"});
-  json data = json::parse(r.text);
-  ColorString(data["text"]).println();
+  // cpr::Response r = cpr::Get(cpr::Url{"http://localhost:3000"});
+  // json data = json::parse(r.text);
+  // ColorString(data["text"]).println();
 
-  clear(true);
+  // clear(true);
+  clear();
 
   Window::updateWindow();
 }

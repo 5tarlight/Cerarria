@@ -39,15 +39,6 @@ void Window::updateWindow() {
   for (int i = 0; i < cfg::gameHeight; i++) {
     game[i] = vector<ColorString>(cfg::gameWidth);
     chat[i] = vector<ColorString>(cfg::chatWidth);
-
-    // TODO : Load map and chat
-    for (int j = 0; j < cfg::gameWidth; j++) {
-      game[i][j] = ColorString(" ");
-    }
-
-    for (int j = 0; j < cfg::chatWidth; j++) {
-      chat[i][j] = ColorString(" ");
-    }
   }
 
   fetchChat();
@@ -55,7 +46,7 @@ void Window::updateWindow() {
 
   int w = cfg::gameWidth + cfg::chatWidth + 3;
   // Print it
-  for (int i = -1; i < cfg::gameHeight; i++) {
+  for (int i = -1; i < cfg::gameHeight + 1; i++) {
     for (int j = 0; j < w; j++) {
       if (i == -1) {
         if (j == 0)
@@ -66,7 +57,7 @@ void Window::updateWindow() {
           ColorString("┬", color::NONE).print();
         else
           ColorString("─", color::NONE).print();
-      } else if (i == cfg::gameHeight - 1) {
+      } else if (i == cfg::gameHeight) {
         if (j == 0)
           ColorString("└", color::NONE).print();
         else if (j == w - 1)
@@ -99,6 +90,8 @@ void Window::fetchGame() {
         game[i][j] = ColorString("#", color::GREEN);
       else if (i > 40)
         game[i][j] = ColorString("#");
+      else
+        game[i][j] = ColorString(" ");
     }
   }
 }
