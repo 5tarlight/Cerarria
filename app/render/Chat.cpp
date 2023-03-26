@@ -31,7 +31,7 @@ void Chat::addChat(Chat ch) {
 void Chat::render() {
   auto &chat = Window::windows[cfg::chat].content;
   int width = cfg::chatWidth;
-  int height = cfg::chatHeight;
+  int height = cfg::chatHeight - 1;
   int line = 0;
   int maxLine = Chat::chats.size();
   int pos = 0;
@@ -89,6 +89,18 @@ void Chat::render() {
       } else {
         chat[i][j] = move(lines[i + start][j]);
       }
+    }
+  }
+
+  // Render typing cell
+  for (int i = 0; i < width; i++) {
+    if (i == 0)
+      chat[height][0] = ColorString(">", color::YELLOW, color::BOLD);
+    else if (i == 1)
+      chat[height][1] = ColorString(" ");
+    else {
+      // TODO : use input value
+      chat[height][i] = ColorString(" ");
     }
   }
 }
