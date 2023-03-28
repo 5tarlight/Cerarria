@@ -1,5 +1,5 @@
-#include "input.h"
 #include "ColorString.h"
+#include "clear.h"
 #include "color.h"
 #include <cstdio>
 #include <stdlib.h>

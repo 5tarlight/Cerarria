@@ -1,8 +1,8 @@
 #include "render/ConsoleWindow.h"
 #include <ColorString.h>
+#include <clear.h>
 #include <color.h>
 #include <cpr/cpr.h>
-#include <input.h>
 #include <iostream>
 #include <nlohmann/json.hpp>
 
@@ -16,8 +16,8 @@ int main() {
   // json data = json::parse(r.text);
   // ColorString(data["text"]).println();
 
-  // clear(true);
-  clear();
+  clear(true);
+  // clear();
 
   Window::updateWindow();
 }

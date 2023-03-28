@@ -2,8 +2,8 @@
 #include "../constants.h"
 #include "./chat.h"
 #include <ColorString.h>
+#include <clear.h>
 #include <color.h>
-#include <input.h>
 #include <vector>
 
 using std::string;
